@@ -1,0 +1,10 @@
+.settings__btn {
+    width: max-content;
+    height: 40px;
+    border-style: none;
+    border-radius: 5px;
+    box-sizing: border-box;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+}

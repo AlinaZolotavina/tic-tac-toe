@@ -1,0 +1,13 @@
+.settings {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr;
+    height: 50vh;
+    justify-items: center;
+    border: none;
+    color: #fff;
+    width: 100%;
+    margin-top: 50px;
+    opacity: 0;
+    visibility: hidden;
+}

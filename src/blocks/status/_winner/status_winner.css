@@ -1,0 +1,6 @@
+.status_winner {
+    font-size: 40px;
+    color: greenyellow;
+    transition: font-size .2s linear .2s;
+    transition: color .1s linear .1s;
+}

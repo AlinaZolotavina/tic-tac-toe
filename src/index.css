@@ -1,13 +1,44 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+/* normalize */
+@import url(./vendor/normalize.css);
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
+/* font connection */
+@import url(./vendor/fonts/inter.css);
+
+/* page */
+@import url(./blocks/page/page.css);
+
+/* game */
+@import url(./blocks/game/game.css);
+@import url(./blocks/settings-container/settings-container.css);
+@import url(./blocks/settings/settings.css);
+@import url(./blocks/settings/_open/setting_open.css);
+@import url(./blocks/legend/legend.css);
+@import url(./blocks/settings/__option/settings__option.css);
+@import url(./blocks/settings/__icon/settings__icon.css);
+@import url(./blocks/settings/__icon/_ai/settings__icon_ai.css);
+@import url(./blocks/settings/__icon/_two-players/settings__icon_two-players.css);
+@import url(./blocks/settings/__caption/settings__caption.css);
+@import url(./blocks/settings/__icon/_zero/settings__icon_zero.css);
+@import url(./blocks/settings/__icon/_cross/settings__icon_cross.css);
+@import url(./blocks/settings/__btn/settings__btn.css);
+
+/* board */
+@import url(./blocks/board/board.css);
+
+/* cell */
+@import url(./blocks/cell/cell.css);
+@import url(./blocks/cell/_win/cell_win.css);
+@import url(./blocks/cell/_lose/cell_lose.css);
+
+/* status */
+@import url(./blocks/status/status.css);
+@import url(./blocks/status/_winner/status_winner.css);
+
+/* players */
+@import url(./blocks/players/players.css);
+@import url(./blocks/player/player.css);
+@import url(./blocks/player/__ai/player__ai.css);
+@import url(./blocks/player/__first/player__first.css);
+@import url(./blocks/player/__second/player__second.css);
+
+
