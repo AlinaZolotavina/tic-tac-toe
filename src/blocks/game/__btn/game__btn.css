@@ -1,0 +1,21 @@
+.game__btn {
+    width: 60px;
+    height: 60px;
+    background-color: #CFE0F3;
+    border-style: none;
+    border-radius: 10px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: auto;
+    padding: 0;
+    transition: opacity .2s ease;
+    cursor: pointer;
+}
+
+.game__btn:first-child {
+    margin-right: 20px;
+}
+
+.game__btn:hover {
+    opacity: .7;
+}

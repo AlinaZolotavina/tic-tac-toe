@@ -1,0 +1,15 @@
+.players-selection__option {
+    width: 100%;
+    height: 100%;
+    color: #000;
+    font-size: 20px;
+    line-height: 22px;
+    font-weight: 500;
+    box-sizing: border-box;
+    padding: 0;
+    border-radius: 25px;
+    border-style: none;
+    transition: transform .2s ease .1s, opacity .2s ease .1s;
+    background-color: #CFE0F3;
+    cursor: pointer;
+}

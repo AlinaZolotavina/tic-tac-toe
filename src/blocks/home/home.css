@@ -1,0 +1,15 @@
+.home {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    grid-template-areas:
+        ". . zero1 . logo logo . . . cross1"
+        ". cross2 . cross3 logo logo . . zero2 ."
+        ". zero3 . . btns btns . cross4 . ."
+        ". . . . . . . . zero4 .";
+    height: 65vh;
+    justify-items: center;
+    border: none;
+    width: 100%;
+    padding-top: 135px;
+}

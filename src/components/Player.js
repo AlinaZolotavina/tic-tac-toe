@@ -1,9 +1,14 @@
-function Player({ playerClassname, player, playerShape }) {
+function Player({
+    playerClassname,
+    playerIconClassname,
+    player,
+    playerShape,
+    active }) {
     return(
-        <div className={playerClassname}>
-            <div className={playerClassname}/>
-            <p>{player}</p>
-            <div className={`${playerShape}`}/>
+        <div className={`${playerClassname} ${active && 'player_active'}`}>
+            <div className={playerIconClassname}/>
+            <p className='player__name' >{player}</p>
+            <div className={`player__shape player__shape_type_${playerShape}`}/>
         </div>
     )
 };

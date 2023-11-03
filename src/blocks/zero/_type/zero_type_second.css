@@ -1,0 +1,20 @@
+.zero_type_second {
+    width: 135px;
+    height: 135px;
+    grid-area: zero2;
+    align-self: center;
+    justify-content: center;
+    animation: scale 2s ease infinite;
+}
+
+@keyframes scalee {
+    from {
+        transform: scale(1, 1);
+    }
+    50% {
+        transform: scale(1.1, 1.1);
+    }
+    100% {
+        transform: scale(1, 1)
+    }
+}

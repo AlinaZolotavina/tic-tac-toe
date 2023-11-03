@@ -1,17 +1,14 @@
 function PlayersSelection({
-    isOpen,
     onOnePlayerClick,
     onTwoPlayersClick
 }) {
     return (
-        <div className={`settings ${isOpen ? 'settings_open' : ''}`}>
-            <div className='settings__option' onClick={onTwoPlayersClick}>
-                <div className='settings__icon settings__icon_two-players' />
-                <p className='settings__caption' >Two players</p>
+        <div className='players-selection' >
+            <div className='players-selection__option-container'>
+                <button className='players-selection__option' onClick={onOnePlayerClick}>SINGLE PLAYER</button>
             </div>
-            <div className='settings__option' onClick={onOnePlayerClick}>
-                <div className='settings__icon settings__icon_ai' />
-                <p className='settings__caption' >Play with computer</p>
+            <div className='players-selection__option-container'>
+                <button className='players-selection__option' onClick={onTwoPlayersClick}>TWO PLAYERS</button>
             </div>
         </div>
     );

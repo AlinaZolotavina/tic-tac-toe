@@ -1,8 +1,17 @@
-import {  useState } from "react";
+import {  useEffect, useState } from "react";
 import Cell from './Cell';
-import PlayersPanel from "./PlayersPanel";
+import Player from './Player';
+import GameStatus from './GameStatus';
+import HomeBtn from "./HomeBtn";
 
-function Board({ AiMode, ai, human, onBackToSettingsBtnClick }) {
+function Board({
+    AiMode,
+    ai,
+    human,
+    onBackToSettingsBtnClick,
+    onHomeBtnClick,
+    winnerSetter,
+    }) {
     let cells = [
         {id: 0, win: false},
         {id: 1, win: false},
@@ -16,21 +25,53 @@ function Board({ AiMode, ai, human, onBackToSettingsBtnClick }) {
     ];
     const [board, setBoard] = useState(Array(9).fill(null));
     const [humanTurn, setHumanTurn] = useState(true);
+    const [isFirstPlayerActive, setFirstPlayerActive] = useState(true);
+    const [isSecondPlayerActive, setSecondPlayerActive] = useState(false);
     let status;
+
+    useEffect(() => {
+        if (humanTurn) {
+            setFirstPlayerActive(true);
+            setSecondPlayerActive(false);
+        } else {
+            setFirstPlayerActive(false);
+            setSecondPlayerActive(true);
+        }
+    }, [humanTurn]);
 
     function handleStartGameOver() {
         setBoard(Array(9).fill(null));
+        winnerSetter(null);
     };
+
 
     const winner = decideWinner(board);
     if (winner) {
         if (winner !== 'tie') {
-            status = `Winner is ${winner}`;
+            if(AiMode) {
+                if (winner === human) {
+                    status = 'You won!';
+                    winnerSetter(winner);
+                } else {
+                    status = "AI won!";
+                }
+            } else {
+                if (winner === human) {
+                    status = '1st player won!';
+                } else {
+                    status = '2nd player won!';
+               }
+               winnerSetter(winner);
+            }
         } else {
             status = 'Tie!';
         }
     } else {
-        status = `Next player is ${humanTurn ? human : ai}`;
+        if (AiMode) {
+            status = `${humanTurn ? "It's your turn" : "AI's turn"}`;
+        } else {
+            status = `${humanTurn ? "1st player's turn" : "2nd player's turn"}`
+        }
     };
 
     function handleClick(cell) {
@@ -38,17 +79,16 @@ function Board({ AiMode, ai, human, onBackToSettingsBtnClick }) {
             return;
         }
         let boardState = board.slice();
-
         if (AiMode) {
             if (humanTurn) {
                 boardState[cell] = human;
                 setBoard(boardState);
                 setHumanTurn(false);
-                console.log('human turn');
             }
-            setBoard(handleAIMove(boardState));
-            console.log('ai turn');
-            setHumanTurn(true);
+            setTimeout(() => {
+                setBoard(handleAIMove(boardState));
+                setHumanTurn(true);
+            }, 1500);                           
         } else {
             if (humanTurn) {
                 boardState[cell] = human;
@@ -183,22 +223,47 @@ function Board({ AiMode, ai, human, onBackToSettingsBtnClick }) {
 
     return(
         <>
-            <PlayersPanel AI={AiMode} gameStatus={status} winner={winner} />
-            <div className='board'>
-                {cells.map(cell => (
-                    <Cell
-                        key={cell.id}
-                        value={board[cell.id]}
-                        onClick={() => handleClick(cell.id)}
-                        win={cell.win}
-                        winner={winner}
-                    />
-                ))}
+            <div className='menu'>
+                <HomeBtn onClick={onHomeBtnClick} />
+                <div className='game__btns' >
+                    <button className='game__btn game__btn_type_restart' onClick={handleStartGameOver} />
+                    <button className='game__btn game__btn_type_settings' onClick={onBackToSettingsBtnClick} />
+                </div>
             </div>
-            <div>
-                <button onClick={onBackToSettingsBtnClick} >Back to game settings</button>
-                <button onClick={handleStartGameOver} >Start the game over</button>
+            <div className='game__main-unit' >
+                <Player
+                    playerClassname='player player__first'
+                    playerIconClassname='player__icon player__icon_type_default'
+                    player={AiMode ? 'Player' : '1st player'}
+                    playerShape={AiMode ? human : 'x'}
+                    active={isFirstPlayerActive}
+                />
+                <div className='board-container'>
+                    <div className='board'>
+                        {cells.map(cell => (
+                            <Cell
+                                key={cell.id}
+                                value={board[cell.id]}
+                                onClick={() => handleClick(cell.id)}
+                                win={cell.win}
+                                winner={winner}
+                            />
+                        ))}
+                    </div>
+                    
+                </div>
+                <Player
+                    playerClassname={`player ${AiMode ? 'player__ai' : 'player__second'}`}
+                    playerIconClassname={`player__icon ${AiMode ? 'player__icon_type_ai' : 'player__icon_type_default'}`}
+                    player={AiMode ? 'AI' : '2nd player'}
+                    playerShape={AiMode ? ai : 'o'}
+                    active={isSecondPlayerActive}
+                />
             </div>
+            <div className='game__secondary-unit' >
+                <GameStatus status={status} winner={winner} />
+            </div>
+            
         </>
     );
 };

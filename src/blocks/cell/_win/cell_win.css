@@ -1,6 +1,4 @@
 .cell_win {
-    font-size: 120px;
-    color: greenyellow;
-    transition: font-size .2s linear .2s;
-    transition: color .1s linear .1s;
+    background-size: 70%;
+    transition: background-size .1s linear .1s;
 }

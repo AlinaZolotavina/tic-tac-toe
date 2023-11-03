@@ -1,29 +1,25 @@
 import PlayersSelection from "./PlayersSelection";
-import ShapeSelection from "./ShapeSelection";
 
 function GameSettings({
-    isPlayersSelectionOpen, 
-    isShapeSelectionOpen,
     onOnePlayerClick,
     onTwoPlayersClick,
-    onShapeSelect,
-    onBackToSettingsBtnClick,
 }) {
     return(
-        <div className='settings-container'>
-        <p className='legend'>{isPlayersSelectionOpen ? 'Select number of players' : isShapeSelectionOpen ? 'Choose your shape' : ''}</p>
-        {isPlayersSelectionOpen && <PlayersSelection 
-            isOpen={isPlayersSelectionOpen}
-            onOnePlayerClick={onOnePlayerClick}
-            onTwoPlayersClick={onTwoPlayersClick}            
-        />}
-        {isShapeSelectionOpen && <ShapeSelection
-            isOpen={isShapeSelectionOpen}
-            onShapeSelect={onShapeSelect}
-            onBackToSettingsBtnClick={onBackToSettingsBtnClick}
-        />}
-        {isShapeSelectionOpen && <button className='settings__btn' onClick={onBackToSettingsBtnClick} >Back to game settings</button>}
-    </div>
+        <div className='home' >
+            <div className='logo' />
+            <div className='zero zero_type_first' />
+            <div className='zero zero_type_second' />
+            <div className='zero zero_type_third' />
+            <div className='zero zero_type_fourth' />
+            <div className='cross cross_type_first' />
+            <div className='cross cross_type_second' />
+            <div className='cross cross_type_third' />
+            <div className='cross cross_type_fourth' />
+            <PlayersSelection 
+                onOnePlayerClick={onOnePlayerClick}
+                onTwoPlayersClick={onTwoPlayersClick}            
+            />
+        </div>
     )
 };
 

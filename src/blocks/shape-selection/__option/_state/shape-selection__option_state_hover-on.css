@@ -1,0 +1,5 @@
+.shape-selection__option_state_hover-on {
+    scale: 1.1;
+    opacity: 1;
+    transition: opacity .2s ease, scale .2s ease;
+}

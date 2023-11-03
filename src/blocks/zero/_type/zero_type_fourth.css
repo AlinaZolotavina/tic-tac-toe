@@ -1,0 +1,21 @@
+.zero_type_fourth {
+    width: 50px;
+    height: 50px;
+    grid-area: zero4;
+    align-self: start;
+    justify-self: end;
+    animation: scale 2s ease infinite;
+    background-image: url(../../../images/zero-fourth.svg);
+}
+
+@keyframes scale {
+    from {
+        transform: scale(1, 1);
+    }
+    50% {
+        transform: scale(1.1, 1.1);
+    }
+    100% {
+        transform: scale(1, 1)
+    }
+}
