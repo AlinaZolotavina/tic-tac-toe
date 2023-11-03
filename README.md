@@ -1,4 +1,5 @@
-# TIC-TAC-TOE
+![Site gif](./src/images/readme%20gif.gif)
+# TIC-TAC-TOE ![english](./src/images/english.png)
 The game where players take turns marking the spaces in a three-by-three grid with X or O. The player who succeeds in placing three of their marks in a horizontal, vertical, or diagonal row is the winner.
 
 ## Design
@@ -10,7 +11,7 @@ I used the CSS Animation a lot to make the game look more attractive and funny.
 
 ## Two modes are available:
 - In 'Single player' mode, the player plays against artificial intelligence. In this mode player can also select a shape to play with.
-- In 'Two players' mode players play against each other.
+- In 'Two players' mode players play againstseach other.
 
 ## Technologies in use:
 - Adobe Illustrator;
@@ -22,7 +23,7 @@ I used the CSS Animation a lot to make the game look more attractive and funny.
 ## Future scope:
 - Adaptive layout (tablets, mobiles).
 
-# КРЕСТИКИ-НОЛИКИ
+# КРЕСТИКИ-НОЛИКИ ![russian](./src/images/russian.png)
 Игра, в которой игроки по очереди ходят крестиком или ноликом на поле размером 3х3. Побеждает игрок, разместивший три фигуры в ряд, столбец или по диагонали.
 
 ## Дизайн
@@ -37,6 +38,8 @@ I used the CSS Animation a lot to make the game look more attractive and funny.
 - В режиме "Два игрока" игроки играют против друг друга.
 
 ## Использованные технологии:
+- Adobe Illustrator;
+- Figma;
 - HTML;
 - CSS: технология построения сетки Flex, технология построения сетки Grid Layout, фоны и границы, цвета, шрифты, анимации;
 - React JS: функциональные компоненты, хуки (useState, useEffect), react-router-dom.
