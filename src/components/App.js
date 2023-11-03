@@ -13,19 +13,19 @@ function App() {
     const [humanShape, setHumanShape] = useState('x');
     const [winner, setWinner] = useState(null);
     function handleTwoPlayersClick() {
-        history.push('/tic-tac-toe/new-game');
+        history.push('/new-game');
         // // history.push('/tic-tac-toe/two-players-game');
         setAI(false);
     }
 
     function handleOnePlayerClick() {
-        history.push('/tic-tac-toe/shape-selection');
+        history.push('/shape-selection');
         // // history.push('/tic-tac-toe/one-player-game');
         setAI(true);
     }
 
     function handleShapeSelect(shape) {
-        history.push('/tic-tac-toe/new-game');
+        history.push('/new-game');
         setHumanShape(shape);
         if( shape === 'x') {
             setAiShape('o');
@@ -35,7 +35,7 @@ function App() {
     };
 
     function handleBackToSettingsBtnClick() {
-        history.push('/tic-tac-toe');
+        history.push('/');
         setWinner(null);
     };
 
@@ -46,7 +46,7 @@ function App() {
 
     return(
         <Switch>
-            <Route exact path='/tic-tac-toe' >
+            <Route exact path='/' >
                 <GameSettings
                     onTwoPlayersClick={handleTwoPlayersClick}
                     onOnePlayerClick={handleOnePlayerClick}
@@ -54,13 +54,13 @@ function App() {
                     onBackToSettingsBtnClick={handleBackToSettingsBtnClick}
                 />
             </Route>
-            <Route exact path='/tic-tac-toe/shape-selection' >
+            <Route exact path='/shape-selection' >
                 <ShapeSelection
                     onShapeSelect={handleShapeSelect}
                     onHomeBtnClick={handleHomeBtnClick}
                 />
             </Route>
-            <Route path='/tic-tac-toe/new-game' >
+            <Route path='/new-game' >
                 <div className='game'>
                     <Board
                         AiMode={AI}

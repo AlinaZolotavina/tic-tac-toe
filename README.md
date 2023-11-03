@@ -1,70 +1,45 @@
-# Getting Started with Create React App
+# TIC-TAC-TOE
+The game where players take turns marking the spaces in a three-by-three grid with X or O. The player who succeeds in placing three of their marks in a horizontal, vertical, or diagonal row is the winner.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Design
+The design was inspired by ["TicTacToe Mini Game" project](https://www.behance.net/gallery/85650953/TicTacToe-Mini-Game) by [Iliana Dimitrova](https://www.behance.net/ilianastavreva). All icons and images were creaated in Adobe Illustrator by myself (although, of course, I used references). 
 
-## Available Scripts
+[Link to layout](https://drive.google.com/file/d/1-A9-nt28XR0tXuNEXV11JKzE95CE09Uk/view?usp=sharing)
 
-In the project directory, you can run:
+I used the CSS Animation a lot to make the game look more attractive and funny. 
 
-### `npm start`
+## Two modes are available:
+- In 'Single player' mode, the player plays against artificial intelligence. In this mode player can also select a shape to play with.
+- In 'Two players' mode players play against each other.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Technologies in use:
+- Adobe Illustrator;
+- Figma;
+- HTML5;
+- CSS3: Flexible Box Layout, Grid Layout, Backgrounds and Borders,  Colors, Fonts, Animation;
+- React JS: functional components, hooks (useState, useEffect), react-router-dom.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Future scope:
+- Adaptive layout (tablets, mobiles).
 
-### `npm test`
+# КРЕСТИКИ-НОЛИКИ
+Игра, в которой игроки по очереди ходят крестиком или ноликом на поле размером 3х3. Побеждает игрок, разместивший три фигуры в ряд, столбец или по диагонали.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Дизайн
+Источником вдохновения для этого дизайна послужил проект ["TicTacToe Mini Game" project](https://www.behance.net/gallery/85650953/TicTacToe-Mini-Game) [Илианы Димитровой](https://www.behance.net/ilianastavreva). Все иконки и изображения были созданы мной в Adobe Illustrator самостоятельно (хотя, конечно, я использовала референсы).
 
-### `npm run build`
+[Ссылка на макет](https://drive.google.com/file/d/1-A9-nt28XR0tXuNEXV11JKzE95CE09Uk/view?usp=sharing)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Я использовала довольно много CSS анимаций, чтобы игра выглядела более првлекательной и веселой.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Доступны два режима игры:
+- В режиме "Один игрок" игрок играет против искусственного интеллекта. В этом режиме игрок может выбрать, какой фигурой играть.
+- В режиме "Два игрока" игроки играют против друг друга.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Использованные технологии:
+- HTML;
+- CSS: технология построения сетки Flex, технология построения сетки Grid Layout, фоны и границы, цвета, шрифты, анимации;
+- React JS: функциональные компоненты, хуки (useState, useEffect), react-router-dom.
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Планы по доработке проекта:
+- Адаптивная верстка (планшеты, мобильные устройства).
