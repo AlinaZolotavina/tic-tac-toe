@@ -1,0 +1,37 @@
+{
+  "files": {
+    "main.css": "/static/css/main.6045177a.css",
+    "main.js": "/static/js/main.29c74bfe.js",
+    "static/js/787.393238a3.chunk.js": "/static/js/787.393238a3.chunk.js",
+    "static/media/Inter-Medium.woff?v=3.19": "/static/media/Inter-Medium.9053572c46aeb4b16caa.woff",
+    "static/media/Inter-ExtraLight.woff?v=3.19": "/static/media/Inter-ExtraLight.c4248615291a9e8f1fb7.woff",
+    "static/media/Inter-Light.woff?v=3.19": "/static/media/Inter-Light.994e34451cc19ede31d3.woff",
+    "static/media/Inter-Regular.woff?v=3.19": "/static/media/Inter-Regular.8c206db99195777c6769.woff",
+    "static/media/Inter-Medium.woff2?v=3.19": "/static/media/Inter-Medium.293fd13dbca5a3e450ef.woff2",
+    "static/media/Inter-Light.woff2?v=3.19": "/static/media/Inter-Light.2d5198822ab091ce4305.woff2",
+    "static/media/Inter-ExtraLight.woff2?v=3.19": "/static/media/Inter-ExtraLight.72505e6a122c6acd5471.woff2",
+    "static/media/Inter-Regular.woff2?v=3.19": "/static/media/Inter-Regular.c8ba52b05a9ef10f4758.woff2",
+    "static/media/logo.svg": "/static/media/logo.12f01ee35f85958e76f3.svg",
+    "static/media/zero.svg": "/static/media/zero.61b5670f5e4d50215509.svg",
+    "static/media/settings.svg": "/static/media/settings.fa107c32fbedcc60df5a.svg",
+    "static/media/cross.svg": "/static/media/cross.bff8c1b588f7f1f092b8.svg",
+    "static/media/ai-icon.svg": "/static/media/ai-icon.f163a4e0b0f53dfb291d.svg",
+    "static/media/restart.svg": "/static/media/restart.3996a9e776efa7b1d925.svg",
+    "static/media/home.svg": "/static/media/home.639dc95062a56979ecce.svg",
+    "index.html": "/index.html",
+    "static/media/zero-third.svg": "/static/media/zero-third.705fd4d92dc9fdd6724a.svg",
+    "static/media/zero-first.svg": "/static/media/zero-first.e1f969070df87b36ee00.svg",
+    "static/media/zero-fourth.svg": "/static/media/zero-fourth.6c1b5a8d6343dc4e08d2.svg",
+    "static/media/player-icon.svg": "/static/media/player-icon.c35967363e9b4ee2f184.svg",
+    "static/media/cross-third.svg": "/static/media/cross-third.45eb20adf5bf49a77928.svg",
+    "static/media/cross-first.svg": "/static/media/cross-first.ac3d7a9c243e43d567f0.svg",
+    "static/media/cross-fourth.svg": "/static/media/cross-fourth.cdb5a01d62d9eaf7256a.svg",
+    "main.6045177a.css.map": "/static/css/main.6045177a.css.map",
+    "main.29c74bfe.js.map": "/static/js/main.29c74bfe.js.map",
+    "787.393238a3.chunk.js.map": "/static/js/787.393238a3.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.6045177a.css",
+    "static/js/main.29c74bfe.js"
+  ]
+}
