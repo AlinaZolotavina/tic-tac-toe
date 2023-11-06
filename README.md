@@ -1,4 +1,4 @@
-![Site gif](./src/images/readme%20gif.gif)
+![Game screen](./src/images/game-screen.jpg)
 # TIC-TAC-TOE ![english](./src/images/english.png)
 The game where players take turns marking the spaces in a three-by-three grid with X or O. The player who succeeds in placing three of their marks in a horizontal, vertical, or diagonal row is the winner.
 
@@ -8,6 +8,8 @@ The design was inspired by ["TicTacToe Mini Game" project](https://www.behance.n
 [Link to layout](https://drive.google.com/file/d/1-A9-nt28XR0tXuNEXV11JKzE95CE09Uk/view?usp=sharing)
 
 I used the CSS Animation a lot to make the game look more attractive and funny. 
+
+![game](./src/images/game-screen-2.jpg)
 
 ## Two modes are available:
 - In 'Single player' mode, the player plays against artificial intelligence. In this mode player can also select a shape to play with.
