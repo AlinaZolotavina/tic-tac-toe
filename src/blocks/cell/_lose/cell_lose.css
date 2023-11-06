@@ -1,6 +1,0 @@
-.cell_lose {
-    background-size: 45%;
-    filter: grayscale(100%);
-    transition: background-size .1s linear .1s;
-    transition: filter .1s linear .1s;
-}
