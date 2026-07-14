@@ -1,7 +1,6 @@
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, useHistory } from 'react-router-dom';
 import GameSettings from './GameSettings';
 import Board from './Board';
-import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import { useState } from 'react';
 import ShapeSelection from './ShapeSelection';
 import Firework from './Firework';

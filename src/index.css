@@ -16,7 +16,6 @@
 @import url(./blocks/game/__btn/_type/game__btn_type_restart.css);
 @import url(./blocks/game/__btn/_type/game__btn_type_settings.css);
 
-
 /* zero */
 @import url(./blocks/zero/zero.css);
 @import url(./blocks/zero/_type/zero_type_first.css);
@@ -88,5 +87,3 @@
 @import url(./blocks/firework/__explosion/_color/firework__explosion_color_yellow.css);
 @import url(./blocks/firework/__explosion/_color/firework__explosion_color_pink.css);
 @import url(./blocks/firework/__explosion/_color/firework__explosion_color_green.css);
-
-
