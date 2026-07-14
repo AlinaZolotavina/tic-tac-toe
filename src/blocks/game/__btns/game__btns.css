@@ -1,3 +1,4 @@
 .game__btns {
-    display: flex;
+  display: flex;
+  align-self: flex-start;
 }

@@ -1,9 +1,16 @@
 .logo {
-    width: 100%;
-    height: auto;
-    background-image: url(../../images/logo.svg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
-    grid-area: logo;
+  width: 100%;
+  height: auto;
+  background-image: url(../../images/tic-tac-toe-logo.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  grid-area: logo;
+}
+
+@media (max-width: 700px) {
+  .logo {
+    width: 40vw;
+    height: 40vw;
+  }
 }

@@ -1,6 +1,24 @@
 .status {
-    font-size: 28px;
-    color: #CFE0F3;
-    font-weight: 400;
-    margin: 0;
+  font-size: 28px;
+  color: #cfe0f3;
+  font-weight: 400;
+  margin: 0;
+}
+
+@media (max-width: 1280px) {
+  .status {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 900px) {
+  .status {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .status {
+    font-size: 18px;
+  }
 }

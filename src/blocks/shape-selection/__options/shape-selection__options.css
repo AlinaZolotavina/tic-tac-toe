@@ -1,4 +1,19 @@
 .shape-selection__options {
-    display: flex;
-    margin: 90px 0 80px;
+  display: flex;
+  width: 100%;
+  height: 50vh;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@media (max-height: 1280px) {
+  .shape-selection__options {
+    max-width: 80%;
+  }
+}
+
+@media (max-height: 900px) {
+  .shape-selection__options {
+    max-width: 100%;
+  }
 }

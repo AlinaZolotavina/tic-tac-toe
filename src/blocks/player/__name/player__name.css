@@ -1,6 +1,29 @@
 .player__name {
-    font-size: 16px;
-    line-height: 20px;
-    font-weight: 500;
-    color: #F7F6C5;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 500;
+  color: #f7f6c5;
+  text-align: center;
+}
+
+@media (max-width: 900px) {
+  .player__name {
+    font-size: 14px;
+    line-height: 17px;
+  }
+}
+
+@media (max-width: 600px) {
+  .player__name {
+    font-size: 12px;
+    line-height: 15px;
+  }
+}
+
+@media (max-width: 400px) {
+  .player__name {
+    font-size: 10px;
+    line-height: 13px;
+    margin: 8px 0;
+  }
 }

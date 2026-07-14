@@ -1,8 +1,22 @@
 .shape-selection__legend {
-    color: #fff;
-    font-size: 24px;
-    line-height: 27px;
-    font-weight: 200;
-    margin: 50px 0 0;
-    padding: 0;
+  color: #fff;
+  font-size: 24px;
+  line-height: 27px;
+  font-weight: 200;
+  margin: 50px 0 0;
+  padding: 0;
+}
+
+@media (max-height: 1280px) {
+  .shape-selection__legend {
+    font-size: 20px;
+    line-height: 24px;
+  }
+}
+
+@media (max-height: 600px) {
+  .shape-selection__legend {
+    font-size: 16px;
+    line-height: 20px;
+  }
 }

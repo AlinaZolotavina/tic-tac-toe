@@ -64,7 +64,7 @@
     right: 0;
     top: 100%;
     height: 40px;
-    animation: explosion 2s ease-in-out infinite;
+    animation: explosion 1.5s ease-in-out infinite;
 }
 
 @keyframes explosion {

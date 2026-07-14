@@ -1,10 +1,24 @@
 .players-selection {
-    display: flex;
-    grid-area: btns;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    margin-top: 10px;
+  display: flex;
+  grid-area: btns;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  height: 100%;
+  width: 100%;
+}
+
+@media screen and (max-width: 700px) {
+  .players-selection {
+    width: 40vw;
+    height: 94px;
+    margin-top: 40px;
+  }
+}
+
+@media screen and (max-height: 520px) {
+  .players-selection {
+    margin-top: 20px;
+  }
 }

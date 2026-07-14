@@ -1,6 +1,6 @@
 import { decideWinner } from "./gameLogic";
 
-export function handleAIMove(board, ai, human, scores) {
+export function handleAiMove(board, ai, human, scores) {
   let bestScore = -Infinity;
   let bestCell;
   for (let i = 0; i < 9; i++) {

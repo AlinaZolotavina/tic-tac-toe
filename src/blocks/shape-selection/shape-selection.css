@@ -1,7 +1,21 @@
 .shape-selection {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 70px 70px 50px;
+  display: flex;
+  width: 30vw;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 70px 70px 50px;
+  margin: 0 auto;
+}
+
+@media (max-width: 1280px) {
+  .shape-selection {
+    width: 45vw;
+  }
+}
+
+@media (max-width: 900px) {
+  .shape-selection {
+    width: 60vw;
+  }
 }

@@ -5,7 +5,9 @@ import GameStatus from "./GameStatus";
 import HomeBtn from "./HomeBtn";
 
 import { decideWinner } from "../utils/gameLogic";
-import { handleAIMove } from "../utils/ai";
+import { handleAiMove } from "../utils/ai";
+
+import { GAME_STATUS } from "../utils/constants";
 
 function Board({
   AiMode,
@@ -15,7 +17,6 @@ function Board({
   onHomeBtnClick,
   winnerSetter,
 }) {
-  const cells = Array.from({ length: 9 }, (_, id) => id);
   const [board, setBoard] = useState(Array(9).fill(null));
   const [humanTurn, setHumanTurn] = useState(true);
   const [isFirstPlayerActive, setFirstPlayerActive] = useState(true);
@@ -49,7 +50,7 @@ function Board({
 
     aiTimeoutRef.current = setTimeout(() => {
       setBoard((currentBoard) => {
-        const bestMove = handleAIMove(currentBoard, ai, human, scores);
+        const bestMove = handleAiMove(currentBoard, ai, human, scores);
 
         const newBoard = [...currentBoard];
         newBoard[bestMove] = ai;
@@ -84,24 +85,24 @@ function Board({
   if (winner) {
     if (AiMode) {
       if (winner === human) {
-        status = "You won!";
+        status = GAME_STATUS.PLAYER_WIN;
       } else {
-        status = "AI won!";
+        status = GAME_STATUS.AI_WIN;
       }
     } else {
       if (winner === human) {
-        status = "1st player won!";
+        status = GAME_STATUS.FIRST_PLAYER_WIN;
       } else {
-        status = "2nd player won!";
+        status = GAME_STATUS.SECOND_PLAYER_WIN;
       }
     }
   } else if (isTie) {
-    status = "Tie!";
+    status = GAME_STATUS.TIE;
   } else {
     if (AiMode) {
-      status = `${humanTurn ? "It's your turn" : "AI's turn"}`;
+      status = `${humanTurn ? GAME_STATUS.PLAYER_TURN : GAME_STATUS.AI_TURN}`;
     } else {
-      status = `${humanTurn ? "1st player's turn" : "2nd player's turn"}`;
+      status = `${humanTurn ? GAME_STATUS.FIRST_PLAYER_TURN : GAME_STATUS.SECOND_PLAYER_TURN}`;
     }
   }
 

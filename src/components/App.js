@@ -1,85 +1,103 @@
-import { Route, Switch, useHistory } from 'react-router-dom';
-import GameSettings from './GameSettings';
-import Board from './Board';
-import { useState } from 'react';
-import ShapeSelection from './ShapeSelection';
-import Firework from './Firework';
+import { Route, Routes, useNavigate } from "react-router-dom";
+import GameSettings from "./GameSettings";
+import Board from "./Board";
+import { useState } from "react";
+import ShapeSelection from "./ShapeSelection";
+import Firework from "./Firework";
 
 function App() {
-    const history = useHistory();
-    const [AI, setAI] = useState(false);
-    const [aiShape, setAiShape] = useState('o');
-    const [humanShape, setHumanShape] = useState('x');
-    const [winner, setWinner] = useState(null);
-    function handleTwoPlayersClick() {
-        history.push('/new-game');
-        // // history.push('/tic-tac-toe/two-players-game');
-        setAI(false);
-    }
+  const navigate = useNavigate();
+  const [Ai, setAi] = useState(false);
+  const [aiShape, setAiShape] = useState("o");
+  const [humanShape, setHumanShape] = useState("x");
+  const [winner, setWinner] = useState(null);
+  function handleTwoPlayersClick() {
+    navigate("/new-game");
+    setAi(false);
+  }
 
-    function handleOnePlayerClick() {
-        history.push('/shape-selection');
-        // // history.push('/tic-tac-toe/one-player-game');
-        setAI(true);
-    }
+  function handleOnePlayerClick() {
+    navigate("/shape-selection");
+    setAi(true);
+  }
 
-    function handleShapeSelect(shape) {
-        history.push('/new-game');
-        setHumanShape(shape);
-        if( shape === 'x') {
-            setAiShape('o');
-        } else {
-            setAiShape('x');
+  function handleShapeSelect(shape) {
+    navigate("/new-game");
+    setHumanShape(shape);
+    if (shape === "x") {
+      setAiShape("o");
+    } else {
+      setAiShape("x");
+    }
+  }
+
+  function handleBackToSettingsBtnClick() {
+    navigate("/");
+    setWinner(null);
+  }
+
+  function handleHomeBtnClick() {
+    navigate("/");
+    setWinner(null);
+  }
+
+  const fireworks = [
+    { classname: "firework_number_first", color: "light-blue" },
+    { classname: "firework_number_second", color: "yellow" },
+    { classname: "firework_number_third", color: "pink" },
+    { classname: "firework_number_fourth", color: "green" },
+    { classname: "firework_number_fifth", color: "light-blue" },
+    { classname: "firework_number_sixth", color: "yellow" },
+    { classname: "firework_number_seventh", color: "pink" },
+  ];
+
+  return (
+    <Routes>
+      <Route
+        path="/"
+        element={
+          <GameSettings
+            onTwoPlayersClick={handleTwoPlayersClick}
+            onOnePlayerClick={handleOnePlayerClick}
+            onShapeSelect={handleShapeSelect}
+            onBackToSettingsBtnClick={handleBackToSettingsBtnClick}
+          />
         }
-    };
-
-    function handleBackToSettingsBtnClick() {
-        history.push('/');
-        setWinner(null);
-    };
-
-    function handleHomeBtnClick() {
-        history.push('/');
-        setWinner(null);
-    }
-
-    return(
-        <Switch>
-            <Route exact path='/' >
-                <GameSettings
-                    onTwoPlayersClick={handleTwoPlayersClick}
-                    onOnePlayerClick={handleOnePlayerClick}
-                    onShapeSelect={handleShapeSelect}
-                    onBackToSettingsBtnClick={handleBackToSettingsBtnClick}
-                />
-            </Route>
-            <Route exact path='/shape-selection' >
-                <ShapeSelection
-                    onShapeSelect={handleShapeSelect}
-                    onHomeBtnClick={handleHomeBtnClick}
-                />
-            </Route>
-            <Route path='/new-game' >
-                <div className='game'>
-                    <Board
-                        AiMode={AI}
-                        ai={aiShape}
-                        human={humanShape}
-                        onBackToSettingsBtnClick={handleBackToSettingsBtnClick}
-                        onHomeBtnClick={handleHomeBtnClick}
-                        winnerSetter={setWinner}
-                    />
-                    <Firework classname='firework_number_first' visible={winner} color='light-blue' />
-                    <Firework classname='firework_number_second' visible={winner} color='yellow'/>
-                    <Firework classname='firework_number_third' visible={winner} color='pink' />
-                    <Firework classname='firework_number_fourth' visible={winner} color='green' />
-                    <Firework classname='firework_number_fifth' visible={winner} color='light-blue' />
-                    <Firework classname='firework_number_sixth' visible={winner} color='yellow'/>
-                    <Firework classname='firework_number_seventh' visible={winner} color='pink' />
-                </div>
-            </Route>
-        </Switch>
-    )
-};
+      />
+      <Route
+        path="/shape-selection"
+        element={
+          <ShapeSelection
+            onShapeSelect={handleShapeSelect}
+            onHomeBtnClick={handleHomeBtnClick}
+          />
+        }
+      />
+      <Route
+        path="/new-game"
+        element={
+          <div className="game">
+            <Board
+              AiMode={Ai}
+              ai={aiShape}
+              human={humanShape}
+              onBackToSettingsBtnClick={handleBackToSettingsBtnClick}
+              onHomeBtnClick={handleHomeBtnClick}
+              winnerSetter={setWinner}
+            />
+            {fireworks.map(({ classname, color }) => (
+              <Firework
+                key={classname}
+                classname={classname}
+                visible={winner}
+                color={color}
+              />
+            ))}
+          </div>
+        }
+      />
+    </Routes>
+  );
+}
 
 export default App;
