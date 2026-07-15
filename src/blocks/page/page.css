@@ -1,4 +1,7 @@
 .page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: relative;
   min-width: 320px;
   min-height: 100vh;

@@ -1,0 +1,11 @@
+.navigation-link {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 300;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.navigation-link:hover {
+  opacity: 0.7;
+}

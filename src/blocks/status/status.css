@@ -2,7 +2,8 @@
   font-size: 28px;
   color: #cfe0f3;
   font-weight: 400;
-  margin: 0;
+  margin: 0 auto;
+  grid-area: status;
 }
 
 @media (max-width: 1280px) {

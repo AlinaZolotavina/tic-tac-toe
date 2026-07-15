@@ -1,20 +1,20 @@
 .game {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 180px auto 180px;
+  grid-template-areas:
+    "player1 board player2"
+    ". status ."
+    ". menu .";
   align-items: center;
-  padding-top: 15vh;
-  box-sizing: border-box;
 }
 
-@media (max-height: 800px) {
+@media (max-width: 768px) {
   .game {
-    height: 80vh;
-    padding: 30px 0 0;
-  }
-}
-
-@media (max-width: 600px) {
-  .game {
-    justify-content: center;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "player1 player2"
+      "board board"
+      "status status"
+      "menu menu";
   }
 }

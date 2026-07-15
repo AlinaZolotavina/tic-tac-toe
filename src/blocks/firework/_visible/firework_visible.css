@@ -1,4 +1,5 @@
 .firework_visible {
-    opacity: 1;
-    visibility: visible;
+  opacity: 1;
+  visibility: visible;
+  /* overflow: hidden; */
 }

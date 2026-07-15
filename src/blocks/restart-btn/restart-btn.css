@@ -1,0 +1,21 @@
+.restart-btn {
+  position: relative;
+  margin-left: 16px;
+  padding-left: 16px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 300;
+  background-color: transparent;
+  border-style: none;
+}
+
+.restart-btn::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 2px;
+  height: 18px;
+  background-color: rgba(255, 255, 255, 0.4);
+}

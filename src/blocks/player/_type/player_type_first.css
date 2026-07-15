@@ -1,0 +1,5 @@
+.player_type_first {
+  grid-area: player1;
+  justify-self: end;
+  margin-right: 10px;
+}

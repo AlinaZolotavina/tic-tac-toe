@@ -9,12 +9,8 @@
 
 /* game */
 @import url(./blocks/game/game.css);
-@import url(./blocks/game/__main-unit/game__main-unit.css);
-@import url(./blocks/game/__secondary-unit/game__secondary-unit.css);
-@import url(./blocks/game/__btns/game__btns.css);
-@import url(./blocks/game/__btn/game__btn.css);
-@import url(./blocks/game/__btn/_type/game__btn_type_restart.css);
-@import url(./blocks/game/__btn/_type/game__btn_type_settings.css);
+@import url(./blocks/navigation-link/navigation-link.css);
+@import url(./blocks/restart-btn/restart-btn.css);
 
 /* zero */
 @import url(./blocks/zero/zero.css);
@@ -61,8 +57,10 @@
 @import url(./blocks/status/_winner/status_winner.css);
 
 /* players */
-@import url(./blocks/players/players.css);
 @import url(./blocks/player/player.css);
+@import url(./blocks/player/_type/player_type_first.css);
+@import url(./blocks/player/_type/player_type_second.css);
+@import url(./blocks/player/_type/player_type_ai.css);
 @import url(./blocks/player/_active/player_active.css);
 @import url(./blocks/player/__icon/player__icon.css);
 @import url(./blocks/player/__icon/_type/player__icon_type_default.css);

@@ -1,22 +1,15 @@
 import { useEffect, useState, useRef } from "react";
+import { Link } from "react-router-dom";
 import Cell from "./Cell";
 import Player from "./Player";
 import GameStatus from "./GameStatus";
-import HomeBtn from "./HomeBtn";
 
 import { decideWinner } from "../utils/gameLogic";
 import { handleAiMove } from "../utils/ai";
 
 import { GAME_STATUS } from "../utils/constants";
 
-function Board({
-  AiMode,
-  ai,
-  human,
-  onBackToSettingsBtnClick,
-  onHomeBtnClick,
-  winnerSetter,
-}) {
+function Board({ aiMode, ai, human, winnerSetter }) {
   const [board, setBoard] = useState(Array(9).fill(null));
   const [humanTurn, setHumanTurn] = useState(true);
   const [isFirstPlayerActive, setFirstPlayerActive] = useState(true);
@@ -44,7 +37,7 @@ function Board({
   }, []);
 
   useEffect(() => {
-    if (!AiMode || humanTurn || winner) {
+    if (!aiMode || humanTurn || winner) {
       return;
     }
 
@@ -67,7 +60,7 @@ function Board({
         aiTimeoutRef.current = null;
       }
     };
-  }, [AiMode, humanTurn, winner, ai]);
+  }, [aiMode, humanTurn, winner, ai]);
 
   function handleStartGameOver() {
     if (aiTimeoutRef.current) {
@@ -83,7 +76,7 @@ function Board({
   }, [winner, winnerSetter, isTie]);
 
   if (winner) {
-    if (AiMode) {
+    if (aiMode) {
       if (winner === human) {
         status = GAME_STATUS.PLAYER_WIN;
       } else {
@@ -99,7 +92,7 @@ function Board({
   } else if (isTie) {
     status = GAME_STATUS.TIE;
   } else {
-    if (AiMode) {
+    if (aiMode) {
       status = `${humanTurn ? GAME_STATUS.PLAYER_TURN : GAME_STATUS.AI_TURN}`;
     } else {
       status = `${humanTurn ? GAME_STATUS.FIRST_PLAYER_TURN : GAME_STATUS.SECOND_PLAYER_TURN}`;
@@ -113,11 +106,11 @@ function Board({
       return;
     }
 
-    if (AiMode && !humanTurn) {
+    if (aiMode && !humanTurn) {
       return;
     }
     let boardState = board.slice();
-    if (AiMode) {
+    if (aiMode) {
       if (humanTurn) {
         boardState[cell] = human;
         setBoard(boardState);
@@ -153,50 +146,41 @@ function Board({
 
   return (
     <>
+      <Player
+        playerClassname="player player_type_first"
+        playerIconClassname="player__icon player__icon_type_default"
+        player={aiMode ? "Player" : "1st player"}
+        playerShape={aiMode ? human : "x"}
+        active={isFirstPlayerActive}
+      />
+      <div className="board-container">
+        <div className="board">
+          {board.map((_, id) => (
+            <Cell
+              key={id}
+              value={board[id]}
+              onClick={() => handleClick(id)}
+              win={winningCells.includes(id)}
+              winner={winner}
+            />
+          ))}
+        </div>
+      </div>
+      <Player
+        playerClassname={`player ${aiMode ? "player_type_ai" : "player_type_second"}`}
+        playerIconClassname={`player__icon ${aiMode ? "player__icon_type_ai" : "player__icon_type_default"}`}
+        player={aiMode ? "AI" : "2nd player"}
+        playerShape={aiMode ? ai : "o"}
+        active={isSecondPlayerActive}
+      />
+      <GameStatus status={status} winner={winner} />
       <div className="menu">
-        <HomeBtn onClick={onHomeBtnClick} />
-        <div className="game__btns">
-          <button
-            className="game__btn game__btn_type_restart"
-            onClick={handleStartGameOver}
-          />
-          <button
-            className="game__btn game__btn_type_settings"
-            onClick={onBackToSettingsBtnClick}
-          />
-        </div>
-      </div>
-      <div className="game__main-unit">
-        <Player
-          playerClassname="player player__first"
-          playerIconClassname="player__icon player__icon_type_default"
-          player={AiMode ? "Player" : "1st player"}
-          playerShape={AiMode ? human : "x"}
-          active={isFirstPlayerActive}
-        />
-        <div className="board-container">
-          <div className="board">
-            {board.map((_, id) => (
-              <Cell
-                key={id}
-                value={board[id]}
-                onClick={() => handleClick(id)}
-                win={winningCells.includes(id)}
-                winner={winner}
-              />
-            ))}
-          </div>
-        </div>
-        <Player
-          playerClassname={`player ${AiMode ? "player__ai" : "player__second"}`}
-          playerIconClassname={`player__icon ${AiMode ? "player__icon_type_ai" : "player__icon_type_default"}`}
-          player={AiMode ? "AI" : "2nd player"}
-          playerShape={AiMode ? ai : "o"}
-          active={isSecondPlayerActive}
-        />
-      </div>
-      <div className="game__secondary-unit">
-        <GameStatus status={status} winner={winner} />
+        <Link className="navigation-link" to="/">
+          Back to Game settings
+        </Link>
+        <button className="restart-btn" onClick={handleStartGameOver}>
+          Restart
+        </button>
       </div>
     </>
   );

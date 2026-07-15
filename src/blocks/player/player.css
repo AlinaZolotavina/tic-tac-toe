@@ -25,6 +25,12 @@
   }
 }
 
+@media (max-width: 768px) {
+  .player {
+    flex: 1;
+  }
+}
+
 @media (max-width: 700px) {
   .player {
     border-radius: 15px;

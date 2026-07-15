@@ -9,4 +9,12 @@
     opacity 0.2s ease,
     scale 0.2s ease;
   cursor: pointer;
+  border-style: none;
+  background-color: transparent;
+}
+
+@media (max-width: 500px) {
+  .shape-selection__option {
+    min-height: 90px;
+  }
 }

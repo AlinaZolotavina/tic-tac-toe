@@ -7,7 +7,7 @@ import Firework from "./Firework";
 
 function App() {
   const navigate = useNavigate();
-  const [Ai, setAi] = useState(false);
+  const [ai, setAi] = useState(false);
   const [aiShape, setAiShape] = useState("o");
   const [humanShape, setHumanShape] = useState("x");
   const [winner, setWinner] = useState(null);
@@ -29,11 +29,6 @@ function App() {
     } else {
       setAiShape("x");
     }
-  }
-
-  function handleBackToSettingsBtnClick() {
-    navigate("/");
-    setWinner(null);
   }
 
   function handleHomeBtnClick() {
@@ -59,8 +54,6 @@ function App() {
           <GameSettings
             onTwoPlayersClick={handleTwoPlayersClick}
             onOnePlayerClick={handleOnePlayerClick}
-            onShapeSelect={handleShapeSelect}
-            onBackToSettingsBtnClick={handleBackToSettingsBtnClick}
           />
         }
       />
@@ -78,11 +71,9 @@ function App() {
         element={
           <div className="game">
             <Board
-              AiMode={Ai}
+              aiMode={ai}
               ai={aiShape}
               human={humanShape}
-              onBackToSettingsBtnClick={handleBackToSettingsBtnClick}
-              onHomeBtnClick={handleHomeBtnClick}
               winnerSetter={setWinner}
             />
             {fireworks.map(({ classname, color }) => (

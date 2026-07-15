@@ -8,6 +8,8 @@
   border: 2px dashed #96adc8;
   border-radius: 40px;
   margin: 50px 80px 30px;
+  grid-area: board;
+  justify-self: center;
 }
 
 @media (max-width: 1280px) {

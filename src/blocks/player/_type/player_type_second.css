@@ -1,0 +1,5 @@
+.player_type_second {
+  grid-area: player2;
+  justify-self: start;
+  margin-left: 10px;
+}
