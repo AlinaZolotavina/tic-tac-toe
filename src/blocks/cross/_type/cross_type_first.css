@@ -1,7 +1,7 @@
 .cross_type_first {
   width: 45%;
   height: 40%;
-  background-image: url(../../../images/cross-first.svg);
+  background-image: url(../../../assets/game/cross-first.svg);
   grid-area: cross1;
   align-self: start;
   justify-self: start;

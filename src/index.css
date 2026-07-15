@@ -28,7 +28,6 @@
 
 /* settings */
 @import url(./blocks/home/home.css);
-@import url(./blocks/home-btn/home-btn.css);
 @import url(./blocks/menu/menu.css);
 @import url(./blocks/logo/logo.css);
 @import url(./blocks/players-selection/players-selection.css);

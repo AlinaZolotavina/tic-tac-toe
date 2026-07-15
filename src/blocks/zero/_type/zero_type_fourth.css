@@ -5,7 +5,7 @@
   align-self: start;
   justify-self: end;
   animation: scale 2s ease infinite;
-  background-image: url(../../../images/zero-fourth.svg);
+  background-image: url(../../../assets/game/zero-fourth.svg);
 }
 
 @keyframes scale {
