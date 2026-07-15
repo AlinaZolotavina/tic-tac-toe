@@ -1,13 +1,13 @@
 import { decideWinner } from "./gameLogic";
 
-export function handleAiMove(board, ai, human, scores) {
+export function findBestMove(board, ai, human, scores) {
   let bestScore = -Infinity;
   let bestCell;
   for (let i = 0; i < 9; i++) {
     if (board[i] == null) {
-      board[i] = ai;
-      let score = minimax(board, 0, false, ai, human, scores);
-      board[i] = null;
+      const nextBoard = [...board];
+      nextBoard[i] = ai;
+      const score = minimax(nextBoard, 0, false, ai, human, scores);
       if (score > bestScore) {
         bestScore = score;
         bestCell = i;
@@ -28,9 +28,9 @@ export const minimax = (board, depth, humanTurn, ai, human, scores) => {
     let bestScore = -Infinity;
     for (let i = 0; i < 9; i++) {
       if (board[i] == null) {
-        board[i] = ai;
-        let score = minimax(board, depth + 1, false, ai, human, scores);
-        board[i] = null;
+        const nextBoard = [...board];
+        nextBoard[i] = ai;
+        const score = minimax(nextBoard, depth + 1, false, ai, human, scores);
         bestScore = Math.max(score, bestScore);
       }
     }
@@ -39,9 +39,9 @@ export const minimax = (board, depth, humanTurn, ai, human, scores) => {
     let bestScore = Infinity;
     for (let i = 0; i < 9; i++) {
       if (board[i] == null) {
-        board[i] = human;
-        let score = minimax(board, depth + 1, true, ai, human, scores);
-        board[i] = null;
+        const nextBoard = [...board];
+        nextBoard[i] = human;
+        const score = minimax(nextBoard, depth + 1, true, ai, human, scores);
         bestScore = Math.min(score, bestScore);
       }
     }

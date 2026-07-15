@@ -1,6 +1,3 @@
-import { useState } from "react";
-import { useEffect } from "react";
-
 function Cell({ value, win, winner, onClick }) {
   const cellClass =
     value === "x" ? "cell_shape_x" : value === "o" ? "cell_shape_o" : "";

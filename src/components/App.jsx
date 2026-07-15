@@ -31,11 +31,6 @@ function App() {
     }
   }
 
-  function handleHomeBtnClick() {
-    navigate("/");
-    setWinner(null);
-  }
-
   const fireworks = [
     { classname: "firework_number_first", color: "light-blue" },
     { classname: "firework_number_second", color: "yellow" },
@@ -59,12 +54,7 @@ function App() {
       />
       <Route
         path="/shape-selection"
-        element={
-          <ShapeSelection
-            onShapeSelect={handleShapeSelect}
-            onHomeBtnClick={handleHomeBtnClick}
-          />
-        }
+        element={<ShapeSelection onShapeSelect={handleShapeSelect} />}
       />
       <Route
         path="/new-game"

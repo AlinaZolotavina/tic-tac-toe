@@ -1,32 +1,25 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, useMemo } from "react";
 import { Link } from "react-router-dom";
 import Cell from "./Cell";
 import Player from "./Player";
 import GameStatus from "./GameStatus";
 
 import { decideWinner } from "../utils/gameLogic";
-import { handleAiMove } from "../utils/ai";
+import { findBestMove } from "../utils/ai";
 
 import { GAME_STATUS } from "../utils/constants";
 
 function Board({ aiMode, ai, human, winnerSetter }) {
   const [board, setBoard] = useState(Array(9).fill(null));
   const [humanTurn, setHumanTurn] = useState(true);
-  const [isFirstPlayerActive, setFirstPlayerActive] = useState(true);
-  const [isSecondPlayerActive, setSecondPlayerActive] = useState(false);
   const aiTimeoutRef = useRef(null);
   const { winner, winningCells, isTie } = decideWinner(board);
+  const scores = useMemo(
+    () =>
+      human === "x" ? { x: -10, o: 10, tie: 0 } : { x: 10, o: -10, tie: 0 },
+    [human],
+  );
   let status;
-
-  useEffect(() => {
-    if (humanTurn) {
-      setFirstPlayerActive(true);
-      setSecondPlayerActive(false);
-    } else {
-      setFirstPlayerActive(false);
-      setSecondPlayerActive(true);
-    }
-  }, [humanTurn]);
 
   useEffect(() => {
     return () => {
@@ -37,13 +30,13 @@ function Board({ aiMode, ai, human, winnerSetter }) {
   }, []);
 
   useEffect(() => {
-    if (!aiMode || humanTurn || winner) {
+    if (!aiMode || humanTurn || winner || isTie) {
       return;
     }
 
     aiTimeoutRef.current = setTimeout(() => {
       setBoard((currentBoard) => {
-        const bestMove = handleAiMove(currentBoard, ai, human, scores);
+        const bestMove = findBestMove(currentBoard, ai, human, scores);
 
         const newBoard = [...currentBoard];
         newBoard[bestMove] = ai;
@@ -60,7 +53,7 @@ function Board({ aiMode, ai, human, winnerSetter }) {
         aiTimeoutRef.current = null;
       }
     };
-  }, [aiMode, humanTurn, winner, ai]);
+  }, [aiMode, humanTurn, winner, ai, isTie, human, scores]);
 
   function handleStartGameOver() {
     if (aiTimeoutRef.current) {
@@ -129,21 +122,6 @@ function Board({ aiMode, ai, human, winnerSetter }) {
     }
   }
 
-  let scores;
-  if (human === "x") {
-    scores = {
-      x: -10,
-      o: 10,
-      tie: 0,
-    };
-  } else {
-    scores = {
-      x: 10,
-      o: -10,
-      tie: 0,
-    };
-  }
-
   return (
     <>
       <Player
@@ -151,7 +129,7 @@ function Board({ aiMode, ai, human, winnerSetter }) {
         playerIconClassname="player__icon player__icon_type_default"
         player={aiMode ? "Player" : "1st player"}
         playerShape={aiMode ? human : "x"}
-        active={isFirstPlayerActive}
+        active={humanTurn}
       />
       <div className="board-container">
         <div className="board">
@@ -171,7 +149,7 @@ function Board({ aiMode, ai, human, winnerSetter }) {
         playerIconClassname={`player__icon ${aiMode ? "player__icon_type_ai" : "player__icon_type_default"}`}
         player={aiMode ? "AI" : "2nd player"}
         playerShape={aiMode ? ai : "o"}
-        active={isSecondPlayerActive}
+        active={!humanTurn}
       />
       <GameStatus status={status} winner={winner} />
       <div className="menu">
