@@ -89,12 +89,20 @@ src/
 `-- main.jsx
 ```
 
+## Design
+
+The visual style of this project was inspired by the ["TicTacToe Mini Game"](https://www.behance.net/gallery/85650953/TicTacToe-Mini-Game) concept by [Iliana Dimitrova](https://www.behance.net/ilianastavreva).
+
+All icons and illustrations were created by me in Adobe Illustrator, using the original concept as a visual reference.
+
+The complete UI design for this project is available on [Behance](https://www.behance.net/gallery/245794601/Tic-Tac-Toe-UI-design).
+
+CSS animations are used throughout the project to make the gameplay feel more lively and engaging.
+
 ## Future Improvements
 
-- migrate to typescript
-- Add unit and integration tests
 - Support multiple AI difficulty levels
-- Add internationalization (i18n)
+- Add internationalization
 
 ## License
 
