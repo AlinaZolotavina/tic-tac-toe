@@ -107,7 +107,7 @@ function Board({ aiMode, ai, human, winnerSetter }: BoardProps) {
     if (aiMode && !humanTurn) {
       return;
     }
-    let boardState = board.slice();
+    const boardState = board.slice();
     if (aiMode) {
       if (humanTurn) {
         boardState[cell] = human;
