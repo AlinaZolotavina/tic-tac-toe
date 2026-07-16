@@ -9,17 +9,22 @@ import { findBestMove } from "../utils/ai";
 
 import { GAME_STATUS } from "../utils/constants";
 
-function Board({ aiMode, ai, human, winnerSetter }) {
-  const [board, setBoard] = useState(Array(9).fill(null));
+import type { BoardState, Scores } from "../types/game";
+import type { BoardProps } from "../types/components";
+
+function Board({ aiMode, ai, human, winnerSetter }: BoardProps) {
+  const [board, setBoard] = useState<BoardState>(Array(9).fill(null));
   const [humanTurn, setHumanTurn] = useState(true);
-  const aiTimeoutRef = useRef(null);
+  const aiTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const { winner, winningCells, isTie } = decideWinner(board);
-  const scores = useMemo(
+  const scores: Scores = useMemo(
     () =>
       human === "x" ? { x: -10, o: 10, tie: 0 } : { x: 10, o: -10, tie: 0 },
     [human],
   );
-  let status;
+  type GameStatusText = (typeof GAME_STATUS)[keyof typeof GAME_STATUS];
+
+  let status: GameStatusText;
 
   useEffect(() => {
     return () => {
@@ -92,7 +97,7 @@ function Board({ aiMode, ai, human, winnerSetter }) {
     }
   }
 
-  function handleClick(cell) {
+  function handleClick(cell: number) {
     const { winner, isTie } = decideWinner(board);
 
     if (board[cell] !== null || winner || isTie) {

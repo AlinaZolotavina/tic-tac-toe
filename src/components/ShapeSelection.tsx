@@ -1,15 +1,17 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import type { Shape, HoverShape } from "../types/game";
+import type { ShapeSelectionProps } from "../types/components";
 
-function ShapeSelection({ onShapeSelect }) {
+function ShapeSelection({ onShapeSelect }: ShapeSelectionProps) {
   const [crossActiveClassname, setCrossActiveClassname] = useState("");
   const [zeroActiveClassname, setZeroActiveClassname] = useState("");
 
-  function handleShapeSelect(shape) {
+  function handleShapeSelect(shape: Shape) {
     onShapeSelect(shape);
   }
 
-  function handleMouseOver(shape) {
+  function handleMouseOver(shape: HoverShape) {
     if (shape === "cross") {
       setCrossActiveClassname("shape-selection__option_state_hover-on");
       setZeroActiveClassname("shape-selection__option_state_hover-off");

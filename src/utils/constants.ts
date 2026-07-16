@@ -10,4 +10,4 @@ export const GAME_STATUS = {
   SECOND_PLAYER_WIN: "2nd player won!",
 
   TIE: "Tie!",
-};
+} as const;

@@ -1,8 +1,10 @@
-export function equals3(a, b, c) {
+import type { BoardState, CellValue, GameResult } from "../types/game";
+
+export function equals3(a: CellValue, b: CellValue, c: CellValue): boolean {
   return a === b && b === c && a !== null;
 }
 
-const WINNING_LINES = [
+const WINNING_LINES: ReadonlyArray<readonly [number, number, number]> = [
   [0, 1, 2],
   [3, 4, 5],
   [6, 7, 8],
@@ -13,7 +15,7 @@ const WINNING_LINES = [
   [2, 4, 6],
 ];
 
-export function decideWinner(board) {
+export function decideWinner(board: BoardState): GameResult {
   for (const line of WINNING_LINES) {
     const [a, b, c] = line;
 

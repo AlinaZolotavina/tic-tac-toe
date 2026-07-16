@@ -1,16 +1,19 @@
+import { useState } from "react";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import GameSettings from "./GameSettings";
 import Board from "./Board";
-import { useState } from "react";
 import ShapeSelection from "./ShapeSelection";
 import Firework from "./Firework";
+
+import type { Shape, Winner } from "../types/game";
+import type { FireworkConfig } from "../types/firework";
 
 function App() {
   const navigate = useNavigate();
   const [ai, setAi] = useState(false);
-  const [aiShape, setAiShape] = useState("o");
-  const [humanShape, setHumanShape] = useState("x");
-  const [winner, setWinner] = useState(null);
+  const [aiShape, setAiShape] = useState<Shape>("o");
+  const [humanShape, setHumanShape] = useState<Shape>("x");
+  const [winner, setWinner] = useState<Winner>(null);
   function handleTwoPlayersClick() {
     navigate("/new-game");
     setAi(false);
@@ -21,7 +24,7 @@ function App() {
     setAi(true);
   }
 
-  function handleShapeSelect(shape) {
+  function handleShapeSelect(shape: Shape) {
     navigate("/new-game");
     setHumanShape(shape);
     if (shape === "x") {
@@ -31,7 +34,7 @@ function App() {
     }
   }
 
-  const fireworks = [
+  const fireworks: FireworkConfig[] = [
     { classname: "firework_number_first", color: "light-blue" },
     { classname: "firework_number_second", color: "yellow" },
     { classname: "firework_number_third", color: "pink" },
@@ -70,7 +73,7 @@ function App() {
               <Firework
                 key={classname}
                 classname={classname}
-                visible={winner}
+                visible={winner !== null}
                 color={color}
               />
             ))}
